@@ -1,0 +1,39 @@
+@import '../root.sss'
+
+nav
+  height: 3rem
+  background: color(var(--white) shade(2%))
+  border-bottom: 1px solid color(var(--white) shade(5%))
+  position: sticky
+  top: 0
+  z-index: 999
+
+  .nav-info
+    flex: 1
+    text-align: right
+
+  > div
+    line-height: 3rem
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: flex-start
+    align-content: center
+    align-items: center
+    font-size: .9rem
+    @media screen and (max-width: 1200px)
+      padding: 0 1rem
+
+  @media screen and (max-width: 860px)
+    height: 5.125rem
+    > div
+      flex-wrap: wrap
+    .nav-info
+      margin-top: -.125rem
+      text-align: center
+      flex: 0 0 100%
+      order: -1
+    .nav-filters
+      margin: -.75rem auto 0
+      span
+        display: none

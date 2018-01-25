@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import registerServiceWorker from 'poi-preset-sw-precache/register-service-worker';
 import {AppContainer} from 'react-hot-loader';
+import './index.sss'
 
 const render = Component => {
   ReactDOM.render(

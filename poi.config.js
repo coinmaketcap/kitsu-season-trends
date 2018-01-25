@@ -9,5 +9,8 @@ module.exports = {
   presets: [
     require('poi-preset-react')(),
     require('poi-preset-sw-precache')()
-  ]
+  ],
+  extendWebpack: config => {
+    config.module.rule('css').test([ /\.sss$/, /\.css$/ ])
+  }
 }

@@ -1,0 +1,33 @@
+@import '../root.sss'
+
+.App-header
+  text-transform: uppercase
+  text-align: center
+  background: var(--primary)
+  color: var(--white)
+  position: relative
+  user-select: none
+  cursor: default
+
+  a
+    text-decoration: none
+    color: var(--white)
+    &:hover
+      color: var(--accent)
+
+  h1
+    margin: 0
+    font-size: 10vw
+    @media screen and (max-width: 770px)
+      font-size: 20vw
+      margin-top: -20vw
+
+  h2
+    margin-top: -3vw
+    margin-bottom: 0
+    padding-bottom: 2vw
+    font-size: 5vw
+    font-weight: 400
+    @media screen and (max-width: 770px)
+      font-size: 10vw
+      margin-top: -4.5vw
