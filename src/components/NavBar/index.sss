@@ -1,4 +1,4 @@
-@import '../root.sss'
+@import '../../styles/root.sss'
 
 nav
   height: 3rem
@@ -37,3 +37,17 @@ nav
       margin: -.75rem auto 0
       span
         display: none
+
+.nav-filters button
+  border: 1px solid color(var(--white) shade(7%))
+  border-left: none
+  background: color(var(--white) shade(2%))
+  padding: .45rem 1rem
+  cursor: pointer
+  &:first-of-type
+    margin-left: .5rem
+    border-left: 1px solid color(var(--white) shade(7%))
+  &:last-of-type
+    margin-right: .5rem
+  &:hover
+    background: color(var(--primary) a(20%))
