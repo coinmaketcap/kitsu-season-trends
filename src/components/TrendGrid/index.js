@@ -4,12 +4,9 @@ import PropTypes from 'prop-types'
 
 const TrendGrid = ({ trends }) => (
   <ul>
-    <pre>{ JSON.stringify(trends) }</pre>
-    {/*
-    {trends.data.map(trend => (
-      <Trend key={trend.id} {...trend} />
+    {trends.data.map((trend, index) => (
+      <li>{trend.t}</li>
     ))}
-  */}
   </ul>
 )
 
@@ -18,11 +15,11 @@ TrendGrid.propTypes = {
     PropTypes.shape({
       data: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.number.isRequired
-        }).isRequired
-      ).isRequired
-    }).isRequired
-  ).isRequired
+          id: PropTypes.number
+        })
+      )
+    })
+  )
 }
 
 export default TrendGrid

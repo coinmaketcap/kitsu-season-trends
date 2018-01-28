@@ -1,12 +1,5 @@
+import { decode } from 'msgpack-lite/lib/decode'
 import { season as s, year as y } from '../util'
-
-export const setSeasonData = ({ season, year }) => {
-  return {
-    type: 'SET_SEASON_DATA',
-    season: season || s(),
-    year: year || y()
-  }
-}
 
 export const setSortOrder = sort => {
   return {
@@ -15,20 +8,28 @@ export const setSortOrder = sort => {
   }
 }
 
-/* Remove below */
-
-let nextTodoId = 0
-export const addTodo = text => {
+export const setTrends = trends => {
+  console.log('setTrends')
+  console.log(trends)
   return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
+    type: 'SET_TRENDS',
+    trends
   }
 }
 
-export const toggleTodo = id => {
-  return {
-    type: 'TOGGLE_TODO',
-    id
+export const fetchData = ({ season, year }) => {
+  return async dispatch => {
+    const res = await fetch(`/msgpack/${year || y()}-${season || s()}.json`, { method: 'get' })
+
+    if (!res.ok) throw new Error(404)
+
+    const { data, meta, updated } = decode(new Uint8Array(await res.arrayBuffer()))
+
+    await Object.keys(data).forEach(show => {
+      data[show].u = data[show].u === 0 ? 'TV' : 'ONA'
+    })
+
+    const state = { data: Object.values(data), meta, updated }
+    dispatch(setTrends(state))
   }
 }

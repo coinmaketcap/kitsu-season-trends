@@ -2,15 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import AddTodo from '../../containers/AddTodo'
 import Header from '../Header'
 import NavBar from '../NavBar'
 import SortedTrendGrid from '../../containers/SortedTrendGrid'
-import { setSeasonData } from '../../actions'
+import { fetchData } from '../../actions'
 
 let App = ({ match, dispatch }) => {
   const { season, year } = match.params
-  dispatch(setSeasonData({ season, year }))
+  dispatch(fetchData({ season, year }))
 
   return (
     <div>
@@ -19,7 +18,6 @@ let App = ({ match, dispatch }) => {
         year={year}
       />
       <NavBar />
-      <AddTodo />
       <SortedTrendGrid />
     </div>
   )
