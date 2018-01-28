@@ -31,29 +31,29 @@ export function seasonUSFormat (date = new Date()) {
   return output === 'autumn' ? 'fall' : output
 }
 
-export function prevSeason ({ s, y }) {
-  switch (s) {
+export function prevSeason ({ season, year }) {
+  switch (season) {
     case 'winter':
-      return { s: 'autumn', y: --y }
+      return { season: 'autumn', year: --year }
     case 'spring':
-      return { s: 'winter', y }
+      return { season: 'winter', year }
     case 'summer':
-      return { s: 'spring', y }
+      return { season: 'spring', year }
     case 'autumn':
-      return { s: 'summer', y }
+      return { season: 'summer', year }
   }
 }
 
-export function nextSeason ({ s, y }) {
-  switch (s) {
+export function nextSeason ({ season, year }) {
+  switch (season) {
     case 'winter':
-      return { s: 'spring', y }
+      return { season: 'spring', year }
     case 'spring':
-      return { s: 'summer', y }
+      return { season: 'summer', year }
     case 'summer':
-      return { s: 'autumn', y }
+      return { season: 'autumn', year }
     case 'autumn':
-      return { s: 'winter', y: ++y }
+      return { season: 'winter', year: ++year }
   }
 }
 

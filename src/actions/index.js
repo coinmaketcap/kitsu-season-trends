@@ -1,9 +1,10 @@
-let nextTodoId = 0
-export const addTodo = text => {
+import { season, year } from '../util'
+
+export const addSeasonData = seasonData => {
   return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
+    type: 'SET_SEASON_DATA',
+    season: seasonData ? seasonData.season : season(),
+    year: seasonData ? seasonData.year : year()
   }
 }
 
@@ -11,6 +12,17 @@ export const setSortOrder = sort => {
   return {
     type: 'SET_SORT_ORDER',
     sort
+  }
+}
+
+/* Remove below */
+
+let nextTodoId = 0
+export const addTodo = text => {
+  return {
+    type: 'ADD_TODO',
+    id: nextTodoId++,
+    text
   }
 }
 

@@ -1,4 +1,6 @@
 const path = require('path')
+var { encode } = require('msgpack-lite/lib/encode')
+var { readFileSync } = require('fs')
 
 module.exports = {
   entry: 'src/index.js',
@@ -6,6 +8,18 @@ module.exports = {
     template: path.resolve('public', 'index.html')
   },
   staticFolder: 'public',
+  copy: [
+    {
+      from: 'data',
+      to: 'data',
+      transform: (content, file) => JSON.stringify(JSON.parse(readFileSync(file, 'utf8')))
+    },
+    {
+      from: 'data',
+      to: 'msgpack',
+      transform: (content, file) => encode(JSON.parse(readFileSync(file, 'utf8')))
+    }
+  ],
   presets: [
     require('poi-preset-eslint')({ mode: '*' }),
     require('poi-preset-react')(),

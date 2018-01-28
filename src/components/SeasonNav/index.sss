@@ -1,0 +1,19 @@
+@import '../../styles/root.sss'
+
+.SeasonNav
+  text-align: center
+  color: var(--primary)
+  .link
+    position: absolute
+    top: 8vw
+    width: 80px
+    text-decoration: none
+    @media screen and (max-width: 770px)
+      top: 15vw
+  .prev
+    left: 0
+    transform: rotate(-90deg)
+  .next
+    right: 0
+    transform: rotate(90deg)
+
