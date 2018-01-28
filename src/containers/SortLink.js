@@ -3,7 +3,6 @@ import { setSortOrder } from '../actions'
 import Link from '../components/Link'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state, ownProps)
   return {
     active: ownProps.sort === state.sortOrder
   }

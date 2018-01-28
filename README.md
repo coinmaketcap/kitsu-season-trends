@@ -1,5 +1,14 @@
 # React App
 
+Files to remove:
+```
+components/Todo
+components/TodoList
+containers/AddTodo
+containers/VisibleTodoList
+reducers/todos
+```
+
 ## Usage
 
 ### `yarn dev`
