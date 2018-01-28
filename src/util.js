@@ -34,7 +34,7 @@ export function seasonUSFormat (date = new Date()) {
 export function prevSeason ({ season, year }) {
   switch (season) {
     case 'winter':
-      return { season: 'autumn', year: --year }
+      return { season: 'autumn', year: (--year).toString() }
     case 'spring':
       return { season: 'winter', year }
     case 'summer':
@@ -53,7 +53,7 @@ export function nextSeason ({ season, year }) {
     case 'summer':
       return { season: 'autumn', year }
     case 'autumn':
-      return { season: 'winter', year: ++year }
+      return { season: 'winter', year: (++year).toString() }
   }
 }
 

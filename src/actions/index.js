@@ -1,10 +1,10 @@
-import { season, year } from '../util'
+import { season as s, year as y } from '../util'
 
-export const addSeasonData = seasonData => {
+export const setSeasonData = ({ season, year }) => {
   return {
     type: 'SET_SEASON_DATA',
-    season: seasonData ? seasonData.season : season(),
-    year: seasonData ? seasonData.year : year()
+    season: season || s(),
+    year: year || y()
   }
 }
 

@@ -6,7 +6,7 @@ import { prevSeason, nextSeason } from '../../util'
 
 import './index.sss'
 
-const SeasonNav = ({ currentSeason }) => {
+let SeasonNav = ({ currentSeason }) => {
   const prev = prevSeason(currentSeason)
   const next = nextSeason(currentSeason)
 
