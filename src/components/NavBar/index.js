@@ -9,7 +9,7 @@ const sorts = [
   { sort: 'SORT_FAVOURITES', name: 'Favourites' }
 ]
 
-const NavBar = () => (
+let NavBar = () => (
   <nav>
     <div className='container'>
       <div className='nav-filters'>
