@@ -1,0 +1,14 @@
+root: true
+parser: babel-eslint
+parserOptions:
+  sourceType: module
+env:
+  browser: true
+extends:
+- standard
+- standard-react
+rules:
+  # Allow paren-less arrow functions
+  arrow-parens: 0
+  # Allow async-await
+  generator-star-spacing: 0

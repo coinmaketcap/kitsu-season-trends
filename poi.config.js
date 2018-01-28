@@ -7,6 +7,7 @@ module.exports = {
   },
   staticFolder: 'public',
   presets: [
+    require('poi-preset-eslint')({ mode: '*' }),
     require('poi-preset-react')(),
     require('poi-preset-sw-precache')()
   ],

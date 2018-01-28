@@ -39,15 +39,19 @@ nav
         display: none
 
 .nav-filters button
-  border: 1px solid color(var(--white) shade(7%))
+  border: 1px solid color(var(--white) shade(10%))
   border-left: none
   background: color(var(--white) shade(2%))
   padding: .45rem 1rem
   cursor: pointer
   &:first-of-type
     margin-left: .5rem
-    border-left: 1px solid color(var(--white) shade(7%))
+    border-left: 1px solid color(var(--white) shade(10%))
   &:last-of-type
     margin-right: .5rem
-  &:hover
-    background: color(var(--primary) a(20%))
+  &:hover:not(:disabled)
+    background: color(var(--white) shade(10%))
+  &:disabled
+    cursor: default
+    background: color(var(--white) shade(10%))
+    color: var(--primary)

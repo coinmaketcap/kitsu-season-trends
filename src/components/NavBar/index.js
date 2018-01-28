@@ -1,22 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import FilterButton from '../FilterButton'
+import SortLink from '../../containers/SortLink'
 import './index.sss'
 
-const filters = [
-  'Score',
-  'Popularity',
-  'Percent Rated',
-  'Favourites'
+const sorts = [
+  { sort: 'SORT_SCORE', name: 'Score' },
+  { sort: 'SORT_POPULARITY', name: 'Popularity' },
+  { sort: 'SORT_RATED', name: 'Percent Rated' },
+  { sort: 'SORT_FAVOURITES', name: 'Favourites' }
 ]
 
-const NavBar = ({ onFilterClick }) => (
+const NavBar = () => (
   <nav>
     <div className='container'>
       <div className='nav-filters'>
         <span>Sort By</span>
-        {filters.map((filter, index) => (
-          <FilterButton key={index} text={filter} onClick={() => onFilterClick(index)} />
+        {sorts.map(({ sort, name }, index) => (
+          <SortLink key={index} sort={sort}>{name}</SortLink>
         ))}
       </div>
       <div className='nav-info'>
@@ -25,9 +24,5 @@ const NavBar = ({ onFilterClick }) => (
     </div>
   </nav>
 )
-
-NavBar.propTypes = {
-  onFilterClick: PropTypes.func.isRequired
-}
 
 export default NavBar

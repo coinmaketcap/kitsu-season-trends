@@ -1,23 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import registerServiceWorker from 'poi-preset-sw-precache/register-service-worker';
-import {AppContainer} from 'react-hot-loader';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import React from 'react'
+import registerServiceWorker from 'poi-preset-sw-precache/register-service-worker'
+
+import App from './components/App'
+import todoApp from './reducers'
+
 import './index.sss'
 
-const render = Component => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    document.getElementById('root')
-  )
-};
+let store = createStore(todoApp)
 
-render(App);
+const Render = () => render(
+  <Provider store={store}>
+    <AppContainer>
+      <App />
+    </AppContainer>
+  </Provider>,
+  document.getElementById('root')
+)
+
+Render()
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => { render(App) });
+  module.hot.accept('./components/App', () => { Render() })
 }
 
-registerServiceWorker();
+registerServiceWorker()
