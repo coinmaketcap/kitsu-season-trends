@@ -21,8 +21,8 @@ module.exports = {
     }
   ],
   presets: [
-    require('poi-preset-eslint')({ mode: '*' }),
     require('poi-preset-react')(),
+    require('poi-preset-eslint')({ mode: '*' }),
     require('poi-preset-sw-precache')()
   ],
   extendWebpack: config => {
