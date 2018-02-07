@@ -1,12 +1,9 @@
 root: true
-parser: babel-eslint
+extends: wopian-react
 parserOptions:
   sourceType: module
 env:
   browser: true
-extends:
-- standard
-- standard-react
 rules:
   # Allow paren-less arrow functions
   arrow-parens: 0
