@@ -22,8 +22,12 @@ module.exports = {
   ],
   presets: [
     require('poi-preset-react')(),
-    require('poi-preset-eslint')({ mode: '*' }),
-    require('poi-preset-sw-precache')()
+    require('poi-preset-eslint')({
+      mode: '*'
+    }),
+    require('poi-preset-sw-precache')({
+      staticFileGlobsIgnorePatterns: [/\.map$/, /\.json$/]
+    })
   ],
   extendWebpack: config => {
     config.module.rule('css').test([ /\.sss$/, /\.css$/ ])
